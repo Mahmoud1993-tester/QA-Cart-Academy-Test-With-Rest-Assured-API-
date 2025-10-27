@@ -4,16 +4,16 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class InfoTest {
-
+public class GetSpecificCourseTest {
     @Test
-    public void ableToGetCoursesInfo() {
+    public void GetCourseWithHeaderMethod() {
         given()
                 .baseUri("https://todo.qacart.com")
+                .header("language", "JAVA")
         .when()
                 .get("/api/v1/info/courses")
         .then()
                 .log().all()
-               .assertThat().statusCode(200);
+                .assertThat().statusCode(200);
     }
 }
